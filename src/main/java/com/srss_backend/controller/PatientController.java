@@ -1,11 +1,8 @@
 package com.srss_backend.controller;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
+import java.util.NoSuchElementException;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +25,6 @@ public class PatientController {
 
 	@Autowired
 	private PatientService patientService;
-
-	@GetMapping("/")
-	public List<Patient> test() {
-		return patientService.getAllPatient();
-	}
 
 	@GetMapping("/allPatient")
 	public HttpEntity getAllPatient() {
@@ -86,7 +78,13 @@ public class PatientController {
 			status.setResponseMessage(se.getMessage());
 			httpStatus = HttpStatus.BAD_REQUEST;
 
-		} catch (Exception e) {
+		} catch (NoSuchElementException nse) {
+
+			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
+			status.setResponseMessage(nse.getMessage());
+			httpStatus = HttpStatus.BAD_REQUEST;
+
+		}catch (Exception e) {
 
 			status.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			status.setResponseMessage("We are having server's problem. Sorry for this inconvenience");
@@ -107,11 +105,6 @@ public class PatientController {
 		Map<String, Object> response = new HashMap<>();
 
 		try {
-			LocalDate today = LocalDate.now();
-			String dateString = today.format(DateTimeFormatter.ofPattern("ddMMyyyy"));
-			Random rand = new Random();
-
-			patient.setNomorPasien(dateString + String.valueOf(rand.nextInt(1000)));
 			patientService.savePatient(patient);
 
 			httpStatus = HttpStatus.OK;
@@ -140,14 +133,14 @@ public class PatientController {
 	}
 
 	@RequestMapping(value = "/updatePatient", method = RequestMethod.PUT)
-	public HttpEntity updatePatient(@RequestParam Long patientId, @RequestBody Patient patient) {
+	public HttpEntity updatePatient(@RequestBody Patient patient ) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
 		Map<String, Object> response = new HashMap<>();
 
 		try {
 
-			patientService.updatePatient(patientId, patient);
+			patientService.updatePatient(patient);
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
@@ -171,7 +164,7 @@ public class PatientController {
 
 		return new ResponseEntity<>(response, httpStatus);
 	}
-
+	
 	@RequestMapping(value = "/deletePatientById", method = RequestMethod.DELETE)
 	public HttpEntity deletePatientById(@RequestParam Long patientId) {
 		Status status = new Status();
