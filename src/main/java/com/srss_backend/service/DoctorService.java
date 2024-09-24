@@ -1,0 +1,52 @@
+package com.srss_backend.service;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.srss_backend.entity.Doctor;
+import com.srss_backend.repository.DoctorRepository;
+
+@Service
+public class DoctorService {
+
+	@Autowired
+	private DoctorRepository doctorRepository;
+
+	public List<Doctor> getAllDoctor() {
+		return doctorRepository.findAll();
+	}
+
+	public void saveDoctor(Doctor doctor) {
+		LocalDate today = LocalDate.now();
+		String dateString = today.format(DateTimeFormatter.ofPattern("ddMMyyyy"));
+		Random rand = new Random();
+
+		doctor.setNomorDokter(dateString + String.valueOf(rand.nextInt(1000)));
+		doctorRepository.save(doctor);
+	}
+
+	public Doctor getDoctorById(Long id) {
+		Doctor doctor = new Doctor();
+		try {
+			doctor = doctorRepository.findById(id).get();
+		} catch (NoSuchElementException e) {
+			throw new NoSuchElementException("Doctor with id " + id + " not found");
+		}
+		return doctor;
+	}
+
+	public void updateDoctor(Doctor doctor) {
+		doctorRepository.save(doctor);
+	}
+
+	public void deleteDoctorById(Long id) {
+		doctorRepository.deleteById(id);
+	}
+
+}
