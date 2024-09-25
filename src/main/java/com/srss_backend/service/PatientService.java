@@ -2,6 +2,7 @@ package com.srss_backend.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -31,14 +32,16 @@ public class PatientService {
 		patientRepository.save(patient);
 	}
 
-	public Patient getPatientById(Long id) {
+	public List<Patient> getPatientById(Long id) {
 		Patient patient = new Patient();
+		List<Patient> listPatient = new ArrayList<>();
 		try {
 			patient = patientRepository.findById(id).get();
+			listPatient.add(patient);
 		} catch (NoSuchElementException e) {
 			throw new NoSuchElementException("Patient with id " + id + " not found");
 		}
-		return patient;
+		return listPatient;
 	}
 
 	public void updatePatient(Patient patient) {
