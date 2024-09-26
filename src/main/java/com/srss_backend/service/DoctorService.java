@@ -2,6 +2,7 @@ package com.srss_backend.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.srss_backend.entity.Doctor;
+import com.srss_backend.entity.Patient;
 import com.srss_backend.repository.DoctorRepository;
 
 @Service
@@ -31,18 +33,31 @@ public class DoctorService {
 		doctorRepository.save(doctor);
 	}
 
-	public Doctor getDoctorById(Long id) {
+	public List<Doctor> getDoctorById(Long id) {
 		Doctor doctor = new Doctor();
+		List<Doctor> listDoctor = new ArrayList<>();
 		try {
 			doctor = doctorRepository.findById(id).get();
+			listDoctor.add(doctor);
 		} catch (NoSuchElementException e) {
 			throw new NoSuchElementException("Doctor with id " + id + " not found");
 		}
-		return doctor;
+		return listDoctor;
 	}
 
-	public void updateDoctor(Doctor doctor) {
-		doctorRepository.save(doctor);
+	public void updateDoctor(Long doctorId, Doctor doctor) {
+		Doctor existingDoctors = new Doctor();
+		try {
+			existingDoctors = doctorRepository.findById(doctorId).get();
+			if (existingDoctors != null) {
+				doctor.setIdDokter(existingDoctors.getIdDokter());
+				doctor.setNomorDokter(existingDoctors.getNomorDokter());
+				doctorRepository.save(doctor);
+
+			}
+		} catch (NoSuchElementException e) {
+			throw new NoSuchElementException("Doctor with id " + doctorId + " not found");
+		}
 	}
 
 	public void deleteDoctorById(Long id) {

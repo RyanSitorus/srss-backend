@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.srss_backend.base.model.Status;
 import com.srss_backend.entity.Doctor;
 import com.srss_backend.service.DoctorService;
 
-@Controller
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@RestController
+@Tag(name = "Doctor", description = "APIs for doctor data")
 public class DoctorController {
 
 	@Autowired
@@ -133,14 +137,14 @@ public class DoctorController {
 	}
 
 	@RequestMapping(value = "/updateDoctor", method = RequestMethod.PUT)
-	public HttpEntity updateDoctor(@RequestBody Doctor doctor ) {
+	public HttpEntity updateDoctor(@RequestParam Long doctorId, @RequestBody Doctor doctor ) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
 		Map<String, Object> response = new HashMap<>();
 
 		try {
 
-			doctorService.updateDoctor(doctor);
+			doctorService.updateDoctor(doctorId, doctor);
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
