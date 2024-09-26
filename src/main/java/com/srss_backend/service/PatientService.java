@@ -9,6 +9,7 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.srss_backend.entity.Patient;
 import com.srss_backend.repository.PatientRepository;
@@ -44,8 +45,20 @@ public class PatientService {
 		return listPatient;
 	}
 
-	public void updatePatient(Patient patient) {
-		patientRepository.save(patient);
+	public void updatePatient(Long patientId, Patient patient) {
+		Patient existingPatients = new Patient();
+		try {
+			existingPatients = patientRepository.findById(patientId).get();
+			if (existingPatients != null) {
+				patient.setIdPasien(existingPatients.getIdPasien());
+				patient.setNomorPasien(existingPatients.getNomorPasien());
+				patientRepository.save(patient);
+
+			}
+		} catch (NoSuchElementException e) {
+			throw new NoSuchElementException("Patient with id " + patientId + " not found");
+		}
+
 	}
 
 	public void deletePatientById(Long id) {
