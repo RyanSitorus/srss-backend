@@ -7,5 +7,7 @@ import com.srss_backend.entity.Users;
 
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
+	
+	Users findByuserName(String userName);
 
 }

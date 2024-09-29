@@ -69,7 +69,7 @@ public class UserController {
 		Map<String, Object> response = new HashMap<>();
 
 		try {
-			response.put("user", userService.getUsersById(userId));
+			response.put("users", userService.getUsersById(userId));
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
@@ -135,4 +135,49 @@ public class UserController {
 
 	}
 
+	@GetMapping("/getUsers")
+	public HttpEntity getUsers(@RequestParam String username) {
+		Status status = new Status();
+		HttpStatus httpStatus = null;
+		Map<String, Object> response = new HashMap<>();
+
+		try {
+			response.put("users", userService.getUsers(username));
+
+			httpStatus = HttpStatus.OK;
+			status.setResponseMessage("Success");
+			status.setResponseCode(HttpStatus.OK.value());
+
+		} catch (ServiceException se) {
+
+			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
+			status.setResponseMessage(se.getMessage());
+			httpStatus = HttpStatus.BAD_REQUEST;
+
+		} catch (NoSuchElementException nse) {
+
+			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
+			status.setResponseMessage(nse.getMessage());
+			httpStatus = HttpStatus.BAD_REQUEST;
+
+		} catch (NullPointerException npe) {
+
+			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
+			status.setResponseMessage(npe.getMessage());
+			httpStatus = HttpStatus.BAD_REQUEST;
+
+		}catch (Exception e) {
+
+			status.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			status.setResponseMessage("We are having server's problem. Sorry for this inconvenience");
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+			e.printStackTrace();
+
+		}
+
+		response.put("status", status);
+
+		return new ResponseEntity<>(response, httpStatus);
+	}
+	
 }
