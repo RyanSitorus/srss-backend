@@ -1,6 +1,8 @@
 package com.srss_backend.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
@@ -33,10 +35,12 @@ public class PatientController {
 	public HttpEntity getAllPatient() {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
+//		Map<String, Object> response = new HashMap<>();
+		List<Patient> allPatient = new ArrayList<>();
 
 		try {
-			response.put("patient", patientService.getAllPatient());
+//			response.put("patient", patientService.getAllPatient());
+			allPatient = patientService.getAllPatient();
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
@@ -57,19 +61,21 @@ public class PatientController {
 
 		}
 
-		response.put("status", status);
+//		response.put("status", status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(allPatient, httpStatus);
 	}
 
 	@GetMapping("/patientById")
 	public HttpEntity getPatientById(@RequestParam Long patientId) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
+//		Map<String, Object> response = new HashMap<>();
+		List<Patient> patient = new ArrayList<>();
 
 		try {
-			response.put("patient", patientService.getPatientById(patientId));
+//			response.put("patient", patientService.getPatientById(patientId));
+			patient = patientService.getPatientById(patientId);
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
@@ -96,16 +102,16 @@ public class PatientController {
 
 		}
 
-		response.put("status", status);
+//		response.put("status", status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(patient, httpStatus);
 	}
 
 	@RequestMapping(value = "/addPatient", method = RequestMethod.POST)
 	public HttpEntity addPatient(@RequestBody Patient patient) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
+//		Map<String, Object> response = new HashMap<>();
 
 		try {
 			patientService.savePatient(patient);
@@ -129,9 +135,9 @@ public class PatientController {
 
 		}
 
-		response.put("status", status);
+//		response.put("status", status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(status, httpStatus);
 
 	}
 
@@ -139,7 +145,7 @@ public class PatientController {
 	public HttpEntity updatePatient(@RequestParam Long patientId, @RequestBody Patient patient ) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
+//		Map<String, Object> response = new HashMap<>();
 
 		try {
 
@@ -163,16 +169,16 @@ public class PatientController {
 			e.printStackTrace();
 
 		}
-		response.put("status", status);
+//		response.put("status", status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(status, httpStatus);
 	}
 	
 	@RequestMapping(value = "/deletePatientById", method = RequestMethod.DELETE)
 	public HttpEntity deletePatientById(@RequestParam Long patientId) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
+//		Map<String, Object> response = new HashMap<>();
 
 		try {
 
@@ -196,9 +202,9 @@ public class PatientController {
 			e.printStackTrace();
 
 		}
-		response.put("status", status);
+//		response.put("status", status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(status, httpStatus);
 	}
 
 }
