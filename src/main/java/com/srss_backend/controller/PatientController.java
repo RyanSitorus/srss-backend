@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.srss_backend.base.model.PatientResponse;
 import com.srss_backend.base.model.Status;
 import com.srss_backend.entity.Patient;
 import com.srss_backend.service.PatientService;
@@ -35,12 +36,10 @@ public class PatientController {
 	public HttpEntity getAllPatient() {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-//		Map<String, Object> response = new HashMap<>();
-		List<Patient> allPatient = new ArrayList<>();
+		PatientResponse allPatient = new PatientResponse();
 
 		try {
-//			response.put("patient", patientService.getAllPatient());
-			allPatient = patientService.getAllPatient();
+			allPatient.setPatient(patientService.getAllPatient());
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
@@ -60,9 +59,9 @@ public class PatientController {
 			e.printStackTrace();
 
 		}
-
-//		response.put("status", status);
-
+		
+		allPatient.setStatus(status);
+		
 		return new ResponseEntity<>(allPatient, httpStatus);
 	}
 
@@ -70,12 +69,11 @@ public class PatientController {
 	public HttpEntity getPatientById(@RequestParam Long patientId) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-//		Map<String, Object> response = new HashMap<>();
-		List<Patient> patient = new ArrayList<>();
+		PatientResponse patient = new PatientResponse();
 
 		try {
 //			response.put("patient", patientService.getPatientById(patientId));
-			patient = patientService.getPatientById(patientId);
+			patient.setPatient(patientService.getPatientById(patientId));
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
@@ -102,8 +100,8 @@ public class PatientController {
 
 		}
 
-//		response.put("status", status);
-
+		patient.setStatus(status);
+		
 		return new ResponseEntity<>(patient, httpStatus);
 	}
 
