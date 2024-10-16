@@ -1,11 +1,13 @@
 package com.srss_backend.base.model;
 
+import java.util.List;
+
 import com.srss_backend.entity.Patient;
 
 public class PatientResponse {
 
 	private Status status;
-	private Patient patient;
+	private List<Patient> patient;
 
 	public Status getStatus() {
 		return status;
@@ -15,12 +17,14 @@ public class PatientResponse {
 		this.status = status;
 	}
 
-	public Patient getPatient() {
+	public List<Patient> getPatient() {
 		return patient;
 	}
 
-	public void setPatient(Patient patient) {
+	public void setPatient(List<Patient> patient) {
 		this.patient = patient;
 	}
+
+	
 
 }
