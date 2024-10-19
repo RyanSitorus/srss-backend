@@ -1,4 +1,4 @@
-package com.srss_backend.entity;
+package com.srss.backend.entity;
 
 import java.time.LocalDate;
 import java.util.Date;

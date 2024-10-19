@@ -1,9 +1,9 @@
-package com.srss_backend.repository;
+package com.srss.backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.srss_backend.entity.Patient;
+import com.srss.backend.entity.Patient;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {

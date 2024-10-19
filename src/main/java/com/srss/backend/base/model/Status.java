@@ -1,4 +1,4 @@
-package com.srss_backend.base.model;
+package com.srss.backend.base.model;
 
 public class Status {
 
