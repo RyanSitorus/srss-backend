@@ -1,4 +1,4 @@
-package com.srss_backend.service;
+package com.srss.backend.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,9 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.srss_backend.entity.Patient;
-import com.srss_backend.entity.Users;
-import com.srss_backend.repository.UserRepository;
+import com.srss.backend.entity.Patient;
+import com.srss.backend.entity.Users;
+import com.srss.backend.repository.UserRepository;
 
 @Service
 public class UserService{

@@ -1,21 +1,23 @@
-package com.srss_backend.service;
+package com.srss.backend.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.srss_backend.entity.Patient;
-import com.srss_backend.repository.PatientRepository;
+import com.srss.backend.entity.Patient;
+import com.srss.backend.repository.PatientRepository;
 
 @Service
 public class PatientService {
+	
+	private final static Logger log = LoggerFactory.getLogger(PatientService.class);
 
 	@Autowired
 	private PatientRepository patientRepository;
@@ -31,18 +33,6 @@ public class PatientService {
 
 		patient.setNomorPasien(dateString + String.valueOf(rand.nextInt(1000)));
 		patientRepository.save(patient);
-	}
-
-	public List<Patient> getPatientById(Long id) {
-		Patient patient = new Patient();
-		List<Patient> listPatient = new ArrayList<>();
-		try {
-			patient = patientRepository.findById(id).get();
-			listPatient.add(patient);
-		} catch (NoSuchElementException e) {
-			throw new NoSuchElementException("Patient with id " + id + " not found");
-		}
-		return listPatient;
 	}
 
 	public void updatePatient(Long patientId, Patient patient) {

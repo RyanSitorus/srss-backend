@@ -1,4 +1,4 @@
-package com.srss_backend.service;
+package com.srss.backend.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -10,9 +10,9 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.srss_backend.entity.Doctor;
-import com.srss_backend.entity.Patient;
-import com.srss_backend.repository.DoctorRepository;
+import com.srss.backend.entity.Doctor;
+import com.srss.backend.entity.Patient;
+import com.srss.backend.repository.DoctorRepository;
 
 @Service
 public class DoctorService {

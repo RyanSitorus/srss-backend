@@ -1,4 +1,4 @@
-package com.srss_backend.entity;
+package com.srss.backend.entity;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -9,23 +9,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 
-@Entity
-@Table(name = "dokter")
 @AllArgsConstructor
-public class Doctor {
+@Entity
+@Table(name = "pasien")
+public class Patient {
 
 	@Id
-	@Column(name = "id_dokter", nullable = false)
+	@Column(name = "id_pasien", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idDokter;
+	private Long idPasien;
 
-	@Column(name = "nomor_dokter", nullable = false)
-	private String nomorDokter;
+	@Column(name = "nomor_pasien", nullable = false)
+	private String nomorPasien;
 
-	@Column(name = "nama_dokter", nullable = false)
-	private String namaDokter;
+	@Column(name = "nama_pasien", nullable = false)
+	private String namaPasien;
 
 	@Column(name = "nomor_hp")
 	private String nomorHp;
@@ -36,37 +38,37 @@ public class Doctor {
 	@Column(name = "jenis_kelamin")
 	private String jenisKelamin;
 
-	@Column(name = "spesialis")
-	private String spesialis;
+	@Column(name = "kategori")
+	private String kategori;
 
 	@Column(name = "alamat")
 	private String alamat;
 
-	public Doctor() {
+	public Patient() {
 	}
 
-	public Long getIdDokter() {
-		return idDokter;
+	public Long getIdPasien() {
+		return idPasien;
 	}
 
-	public void setIdDokter(Long idDokter) {
-		this.idDokter = idDokter;
+	public void setIdPasien(Long idPasien) {
+		this.idPasien = idPasien;
 	}
 
-	public String getNomorDokter() {
-		return nomorDokter;
+	public String getNomorPasien() {
+		return nomorPasien;
 	}
 
-	public void setNomorDokter(String nomorDokter) {
-		this.nomorDokter = nomorDokter;
+	public void setNomorPasien(String nomorPasien) {
+		this.nomorPasien = nomorPasien;
 	}
 
-	public String getNamaDokter() {
-		return namaDokter;
+	public String getNamaPasien() {
+		return namaPasien;
 	}
 
-	public void setNamaDokter(String namaDokter) {
-		this.namaDokter = namaDokter;
+	public void setNamaPasien(String namaPasien) {
+		this.namaPasien = namaPasien;
 	}
 
 	public String getNomorHp() {
@@ -93,12 +95,12 @@ public class Doctor {
 		this.jenisKelamin = jenisKelamin;
 	}
 
-	public String getSpesialis() {
-		return spesialis;
+	public String getKategori() {
+		return kategori;
 	}
 
-	public void setSpesialis(String spesialis) {
-		this.spesialis = spesialis;
+	public void setKategori(String kategori) {
+		this.kategori = kategori;
 	}
 
 	public String getAlamat() {

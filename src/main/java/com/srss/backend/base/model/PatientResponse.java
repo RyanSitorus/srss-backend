@@ -1,8 +1,8 @@
-package com.srss_backend.base.model;
+package com.srss.backend.base.model;
 
 import java.util.List;
 
-import com.srss_backend.entity.Patient;
+import com.srss.backend.entity.Patient;
 
 public class PatientResponse {
 

@@ -1,4 +1,4 @@
-package com.srss_backend;
+package com.srss.backend;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
