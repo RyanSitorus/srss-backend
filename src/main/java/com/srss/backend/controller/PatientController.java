@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.srss.backend.base.model.PatientResponse;
@@ -29,7 +30,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/patient")
 @Tag(name = "Patient", description = "APIs for patient data")
 public class PatientController {
-	
+
 	private final static Logger log = LoggerFactory.getLogger(PatientController.class);
 
 	@Autowired
@@ -66,6 +67,46 @@ public class PatientController {
 		allPatient.setStatus(status);
 
 		return new ResponseEntity<>(allPatient, httpStatus);
+	}
+
+	@GetMapping("/getById")
+	public HttpEntity getPatientById(@RequestParam Long patientId) {
+		Status status = new Status();
+		HttpStatus httpStatus = null;
+		PatientResponse patient = new PatientResponse();
+
+		try {
+//			response.put("patient", patientService.getPatientById(patientId));
+			patient.setPatient(patientService.getPatientById(patientId));
+
+			httpStatus = HttpStatus.OK;
+			status.setResponseMessage("Success");
+			status.setResponseCode(HttpStatus.OK.value());
+
+		} catch (ServiceException se) {
+
+			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
+			status.setResponseMessage(se.getMessage());
+			httpStatus = HttpStatus.BAD_REQUEST;
+
+		} catch (NoSuchElementException nse) {
+
+			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
+			status.setResponseMessage(nse.getMessage());
+			httpStatus = HttpStatus.BAD_REQUEST;
+
+		} catch (Exception e) {
+
+			status.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			status.setResponseMessage("We are having server's problem. Sorry for this inconvenience");
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+			e.printStackTrace();
+
+		}
+
+		patient.setStatus(status);
+
+		return new ResponseEntity<>(patient, httpStatus);
 	}
 
 	@PostMapping(value = "/add")
@@ -155,7 +196,7 @@ public class PatientController {
 			status.setResponseMessage(se.getMessage());
 			httpStatus = HttpStatus.BAD_REQUEST;
 
-		}catch (NoSuchElementException nse) {
+		} catch (NoSuchElementException nse) {
 
 			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
 			status.setResponseMessage(nse.getMessage());
