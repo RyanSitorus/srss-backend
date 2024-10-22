@@ -1,7 +1,6 @@
 package com.srss.backend.entity;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,8 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -23,25 +20,25 @@ public class Patient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPasien;
 
-	@Column(name = "nomor_pasien", nullable = false)
+	@Column(name = "nomor_pasien", nullable = false, unique=true)
 	private String nomorPasien;
 
 	@Column(name = "nama_pasien", nullable = false)
 	private String namaPasien;
 
-	@Column(name = "nomor_hp")
+	@Column(name = "nomor_hp", nullable = false)
 	private String nomorHp;
 
-	@Column(name = "tanggal_lahir")
+	@Column(name = "tanggal_lahir", nullable = false)
 	private LocalDate tanggalLahir;
 
-	@Column(name = "jenis_kelamin")
+	@Column(name = "jenis_kelamin", nullable = false)
 	private String jenisKelamin;
 
-	@Column(name = "kategori")
+	@Column(name = "kategori", nullable = false)
 	private String kategori;
 
-	@Column(name = "alamat")
+	@Column(name = "alamat", nullable = false)
 	private String alamat;
 
 	public Patient() {
