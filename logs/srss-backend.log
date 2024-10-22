@@ -32,3 +32,181 @@
 2024-10-22T07:42:48.943+07:00 DEBUG 19064 --- [srss-backend] [http-nio-8090-exec-10] org.hibernate.SQL                        : select p1_0.id_pasien,p1_0.alamat,p1_0.jenis_kelamin,p1_0.kategori,p1_0.nama_pasien,p1_0.nomor_hp,p1_0.nomor_pasien,p1_0.tanggal_lahir from pasien p1_0 where p1_0.id_pasien=?
 2024-10-22T07:42:54.023+07:00 DEBUG 19064 --- [srss-backend] [http-nio-8090-exec-1] org.hibernate.SQL                        : select p1_0.id_pasien,p1_0.alamat,p1_0.jenis_kelamin,p1_0.kategori,p1_0.nama_pasien,p1_0.nomor_hp,p1_0.nomor_pasien,p1_0.tanggal_lahir from pasien p1_0
 2024-10-22T07:42:58.926+07:00 DEBUG 19064 --- [srss-backend] [http-nio-8090-exec-3] org.hibernate.SQL                        : select p1_0.id_pasien,p1_0.alamat,p1_0.jenis_kelamin,p1_0.kategori,p1_0.nama_pasien,p1_0.nomor_hp,p1_0.nomor_pasien,p1_0.tanggal_lahir from pasien p1_0 where p1_0.id_pasien=?
+2024-10-22T22:15:51.798+07:00  INFO 19028 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Starting SrssBackendApplication using Java 21.0.4 with PID 19028 (D:\Project\srss-backend\target\classes started by andri in D:\Project\srss-backend)
+2024-10-22T22:15:51.801+07:00  INFO 19028 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-10-22T22:15:51.867+07:00  INFO 19028 --- [srss-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-22T22:15:51.867+07:00  INFO 19028 --- [srss-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-22T22:15:52.764+07:00  INFO 19028 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-22T22:15:52.843+07:00  INFO 19028 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 1 JPA repository interface.
+2024-10-22T22:15:53.774+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-10-22T22:15:53.800+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-22T22:15:53.801+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-22T22:15:53.888+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-22T22:15:53.889+07:00  INFO 19028 --- [srss-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2020 ms
+2024-10-22T22:15:54.132+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22T22:15:54.207+07:00  INFO 19028 --- [srss-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-22T22:15:54.259+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-22T22:15:54.605+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-22T22:15:54.638+07:00  INFO 19028 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-22T22:15:54.848+07:00  INFO 19028 --- [srss-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d85362a
+2024-10-22T22:15:54.850+07:00  INFO 19028 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-22T22:15:54.878+07:00  WARN 19028 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-22T22:15:54.880+07:00  WARN 19028 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-22T22:15:55.833+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22T22:15:55.950+07:00  INFO 19028 --- [srss-backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:15:56.407+07:00  WARN 19028 --- [srss-backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22T22:15:56.932+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-22T22:15:56.975+07:00  INFO 19028 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/'
+2024-10-22T22:15:56.986+07:00  INFO 19028 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Started SrssBackendApplication in 5.722 seconds (process running for 6.45)
+2024-10-22T22:17:50.684+07:00  INFO 8748 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Starting SrssBackendApplication using Java 21.0.4 with PID 8748 (D:\Project\srss-backend\target\classes started by andri in D:\Project\srss-backend)
+2024-10-22T22:17:50.692+07:00  INFO 8748 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-10-22T22:17:50.749+07:00  INFO 8748 --- [srss-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-22T22:17:50.749+07:00  INFO 8748 --- [srss-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-22T22:17:51.651+07:00  INFO 8748 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-22T22:17:51.706+07:00  INFO 8748 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 1 JPA repository interface.
+2024-10-22T22:17:52.294+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-10-22T22:17:52.311+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-22T22:17:52.312+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-22T22:17:52.367+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-22T22:17:52.367+07:00  INFO 8748 --- [srss-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1617 ms
+2024-10-22T22:17:52.534+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22T22:17:52.584+07:00  INFO 8748 --- [srss-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-22T22:17:52.620+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-22T22:17:52.910+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-22T22:17:52.942+07:00  INFO 8748 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-22T22:17:53.106+07:00  INFO 8748 --- [srss-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@111e8644
+2024-10-22T22:17:53.108+07:00  INFO 8748 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-22T22:17:53.129+07:00  WARN 8748 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-22T22:17:53.131+07:00  WARN 8748 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-22T22:17:53.945+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22T22:17:54.034+07:00  INFO 8748 --- [srss-backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:17:54.414+07:00  WARN 8748 --- [srss-backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22T22:17:54.847+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-22T22:17:54.883+07:00  INFO 8748 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/'
+2024-10-22T22:17:54.894+07:00  INFO 8748 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Started SrssBackendApplication in 4.746 seconds (process running for 5.535)
+2024-10-22T22:22:32.647+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Starting SrssBackendApplication using Java 21.0.4 with PID 20044 (D:\Project\srss-backend\target\classes started by andri in D:\Project\srss-backend)
+2024-10-22T22:22:32.650+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-10-22T22:22:32.719+07:00  INFO 20044 --- [srss-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-22T22:22:32.719+07:00  INFO 20044 --- [srss-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-22T22:22:33.712+07:00  INFO 20044 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-22T22:22:33.789+07:00  INFO 20044 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 1 JPA repository interface.
+2024-10-22T22:22:34.513+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-10-22T22:22:34.529+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-22T22:22:34.530+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-22T22:22:34.592+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-22T22:22:34.592+07:00  INFO 20044 --- [srss-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1872 ms
+2024-10-22T22:22:34.820+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22T22:22:34.903+07:00  INFO 20044 --- [srss-backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-22T22:22:34.951+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-22T22:22:35.363+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-22T22:22:35.400+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-22T22:22:35.588+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@128e06bd
+2024-10-22T22:22:35.590+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-22T22:22:35.613+07:00  WARN 20044 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-22T22:22:35.614+07:00  WARN 20044 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-22T22:22:37.188+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22T22:22:37.439+07:00  INFO 20044 --- [srss-backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:22:38.308+07:00  WARN 20044 --- [srss-backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22T22:22:39.047+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-22T22:22:39.095+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/'
+2024-10-22T22:22:39.109+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Started SrssBackendApplication in 7.197 seconds (process running for 8.087)
+2024-10-22T22:23:46.846+07:00  INFO 20044 --- [srss-backend] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-22T22:23:46.859+07:00  INFO 20044 --- [srss-backend] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:23:46.862+07:00  INFO 20044 --- [srss-backend] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-22T22:23:46.870+07:00  INFO 20044 --- [srss-backend] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-22T22:23:46.969+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Starting SrssBackendApplication using Java 21.0.4 with PID 20044 (D:\Project\srss-backend\target\classes started by andri in D:\Project\srss-backend)
+2024-10-22T22:23:46.969+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-10-22T22:23:47.195+07:00  INFO 20044 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-22T22:23:47.205+07:00  INFO 20044 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
+2024-10-22T22:23:47.338+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-10-22T22:23:47.340+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-22T22:23:47.340+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-22T22:23:47.369+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-22T22:23:47.369+07:00  INFO 20044 --- [srss-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 397 ms
+2024-10-22T22:23:47.419+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22T22:23:47.422+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-22T22:23:47.431+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-22T22:23:47.432+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-10-22T22:23:47.438+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f08df00
+2024-10-22T22:23:47.438+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-10-22T22:23:47.439+07:00  WARN 20044 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-22T22:23:47.439+07:00  WARN 20044 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-22T22:23:47.488+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22T22:23:47.491+07:00 DEBUG 20044 --- [srss-backend] [restartedMain] org.hibernate.SQL                        : drop table if exists pasien
+2024-10-22T22:23:47.505+07:00 DEBUG 20044 --- [srss-backend] [restartedMain] org.hibernate.SQL                        : create table pasien (tanggal_lahir date not null, id_pasien bigint not null auto_increment, alamat varchar(255) not null, jenis_kelamin varchar(255) not null, kategori varchar(255) not null, nama_pasien varchar(255) not null, nomor_hp varchar(255) not null, nomor_pasien varchar(255) not null, primary key (id_pasien)) engine=InnoDB
+2024-10-22T22:23:47.536+07:00  INFO 20044 --- [srss-backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:23:47.656+07:00  WARN 20044 --- [srss-backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22T22:23:47.791+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-22T22:23:47.804+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/'
+2024-10-22T22:23:47.810+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Started SrssBackendApplication in 0.876 seconds (process running for 76.786)
+2024-10-22T22:23:47.813+07:00  INFO 20044 --- [srss-backend] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-22T22:25:23.486+07:00  INFO 20044 --- [srss-backend] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 8 class path changes (3 additions, 0 deletions, 5 modifications)
+2024-10-22T22:25:23.495+07:00  INFO 20044 --- [srss-backend] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:25:23.496+07:00 DEBUG 20044 --- [srss-backend] [Thread-7] org.hibernate.SQL                        : drop table if exists pasien
+2024-10-22T22:25:23.505+07:00  INFO 20044 --- [srss-backend] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-10-22T22:25:23.508+07:00  INFO 20044 --- [srss-backend] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-10-22T22:25:23.587+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Starting SrssBackendApplication using Java 21.0.4 with PID 20044 (D:\Project\srss-backend\target\classes started by andri in D:\Project\srss-backend)
+2024-10-22T22:25:23.588+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-10-22T22:25:23.820+07:00  INFO 20044 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-22T22:25:23.828+07:00  INFO 20044 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interface.
+2024-10-22T22:25:23.932+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-10-22T22:25:23.933+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-22T22:25:23.933+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-22T22:25:23.958+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-22T22:25:23.958+07:00  INFO 20044 --- [srss-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 368 ms
+2024-10-22T22:25:23.996+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22T22:25:23.998+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-22T22:25:24.007+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-22T22:25:24.008+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-10-22T22:25:24.012+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@823e18a
+2024-10-22T22:25:24.012+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-10-22T22:25:24.013+07:00  WARN 20044 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-22T22:25:24.013+07:00  WARN 20044 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-22T22:25:24.052+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22T22:25:24.052+07:00 DEBUG 20044 --- [srss-backend] [restartedMain] org.hibernate.SQL                        : drop table if exists pasien
+2024-10-22T22:25:24.082+07:00 DEBUG 20044 --- [srss-backend] [restartedMain] org.hibernate.SQL                        : create table pasien (tanggal_lahir date not null, id_pasien bigint not null auto_increment, alamat varchar(255) not null, jenis_kelamin varchar(255) not null, kategori varchar(255) not null, nama_pasien varchar(255) not null, nomor_hp varchar(255) not null, nomor_pasien varchar(255) not null, primary key (id_pasien)) engine=InnoDB
+2024-10-22T22:25:24.105+07:00 DEBUG 20044 --- [srss-backend] [restartedMain] org.hibernate.SQL                        : alter table pasien add constraint UKnl4atnk3k1dsj63sn20vgj69g unique (nomor_pasien)
+2024-10-22T22:25:24.121+07:00  INFO 20044 --- [srss-backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:25:24.209+07:00  WARN 20044 --- [srss-backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22T22:25:24.330+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-22T22:25:24.341+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/'
+2024-10-22T22:25:24.346+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Started SrssBackendApplication in 0.78 seconds (process running for 173.322)
+2024-10-22T22:25:24.347+07:00  INFO 20044 --- [srss-backend] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-22T22:26:50.031+07:00  INFO 20044 --- [srss-backend] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-22T22:26:50.040+07:00  INFO 20044 --- [srss-backend] [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:26:50.041+07:00 DEBUG 20044 --- [srss-backend] [Thread-11] org.hibernate.SQL                        : drop table if exists pasien
+2024-10-22T22:26:50.048+07:00  INFO 20044 --- [srss-backend] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-10-22T22:26:50.052+07:00  INFO 20044 --- [srss-backend] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-10-22T22:26:50.131+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Starting SrssBackendApplication using Java 21.0.4 with PID 20044 (D:\Project\srss-backend\target\classes started by andri in D:\Project\srss-backend)
+2024-10-22T22:26:50.131+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-10-22T22:26:50.299+07:00  INFO 20044 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-22T22:26:50.307+07:00  INFO 20044 --- [srss-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interface.
+2024-10-22T22:26:50.401+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2024-10-22T22:26:50.402+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-22T22:26:50.402+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-22T22:26:50.423+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-22T22:26:50.423+07:00  INFO 20044 --- [srss-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 289 ms
+2024-10-22T22:26:50.467+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22T22:26:50.470+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-22T22:26:50.479+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-22T22:26:50.479+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-10-22T22:26:50.484+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@49c9d139
+2024-10-22T22:26:50.484+07:00  INFO 20044 --- [srss-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-10-22T22:26:50.485+07:00  WARN 20044 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-22T22:26:50.485+07:00  WARN 20044 --- [srss-backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-22T22:26:50.526+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22T22:26:50.557+07:00 DEBUG 20044 --- [srss-backend] [restartedMain] org.hibernate.SQL                        : create table pasien (id_pasien bigint not null auto_increment, alamat varchar(255) not null, jenis_kelamin varchar(255) not null, kategori varchar(255) not null, nama_pasien varchar(255) not null, nomor_hp varchar(255) not null, nomor_pasien varchar(255) not null, tanggal_lahir date not null, primary key (id_pasien)) engine=InnoDB
+2024-10-22T22:26:50.581+07:00 DEBUG 20044 --- [srss-backend] [restartedMain] org.hibernate.SQL                        : alter table pasien drop index UKnl4atnk3k1dsj63sn20vgj69g
+2024-10-22T22:26:50.593+07:00 DEBUG 20044 --- [srss-backend] [restartedMain] org.hibernate.SQL                        : alter table pasien add constraint UKnl4atnk3k1dsj63sn20vgj69g unique (nomor_pasien)
+2024-10-22T22:26:50.604+07:00  INFO 20044 --- [srss-backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T22:26:50.687+07:00  WARN 20044 --- [srss-backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22T22:26:50.812+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-22T22:26:50.824+07:00  INFO 20044 --- [srss-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path '/'
+2024-10-22T22:26:50.829+07:00  INFO 20044 --- [srss-backend] [restartedMain] c.srss.backend.SrssBackendApplication    : Started SrssBackendApplication in 0.728 seconds (process running for 259.806)
+2024-10-22T22:26:50.830+07:00  INFO 20044 --- [srss-backend] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-22T22:28:21.127+07:00  INFO 20044 --- [srss-backend] [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-22T22:28:21.127+07:00  INFO 20044 --- [srss-backend] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-22T22:28:21.129+07:00  INFO 20044 --- [srss-backend] [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-22T22:28:21.651+07:00  INFO 20044 --- [srss-backend] [http-nio-8090-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 289 ms
+2024-10-22T22:28:48.454+07:00 DEBUG 20044 --- [srss-backend] [http-nio-8090-exec-4] org.hibernate.SQL                        : select p1_0.id_pasien,p1_0.alamat,p1_0.jenis_kelamin,p1_0.kategori,p1_0.nama_pasien,p1_0.nomor_hp,p1_0.nomor_pasien,p1_0.tanggal_lahir from pasien p1_0 where p1_0.id_pasien=?
+2024-10-22T22:28:48.483+07:00 DEBUG 20044 --- [srss-backend] [http-nio-8090-exec-4] org.hibernate.SQL                        : insert into pasien (alamat,jenis_kelamin,kategori,nama_pasien,nomor_hp,nomor_pasien,tanggal_lahir) values (?,?,?,?,?,?,?)
