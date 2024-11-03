@@ -1,4 +1,4 @@
-package com.srss_backend;
+package com.srss.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
