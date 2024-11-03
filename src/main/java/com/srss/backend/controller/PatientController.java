@@ -76,7 +76,6 @@ public class PatientController {
 		PatientResponse patient = new PatientResponse();
 
 		try {
-//			response.put("patient", patientService.getPatientById(patientId));
 			patient.setPatient(patientService.getPatientById(patientId));
 
 			httpStatus = HttpStatus.OK;
@@ -87,12 +86,6 @@ public class PatientController {
 
 			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
 			status.setResponseMessage(se.getMessage());
-			httpStatus = HttpStatus.BAD_REQUEST;
-
-		} catch (NoSuchElementException nse) {
-
-			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
-			status.setResponseMessage(nse.getMessage());
 			httpStatus = HttpStatus.BAD_REQUEST;
 
 		} catch (Exception e) {
@@ -159,12 +152,6 @@ public class PatientController {
 			status.setResponseMessage(se.getMessage());
 			httpStatus = HttpStatus.BAD_REQUEST;
 
-		} catch (NoSuchElementException nse) {
-
-			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
-			status.setResponseMessage(nse.getMessage());
-			httpStatus = HttpStatus.BAD_REQUEST;
-
 		} catch (Exception e) {
 
 			status.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
@@ -194,12 +181,6 @@ public class PatientController {
 
 			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
 			status.setResponseMessage(se.getMessage());
-			httpStatus = HttpStatus.BAD_REQUEST;
-
-		} catch (NoSuchElementException nse) {
-
-			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
-			status.setResponseMessage(nse.getMessage());
 			httpStatus = HttpStatus.BAD_REQUEST;
 
 		} catch (Exception e) {

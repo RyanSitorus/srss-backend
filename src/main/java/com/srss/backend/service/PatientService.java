@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
+import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,23 +24,28 @@ public class PatientService {
 	@Autowired
 	private PatientRepository patientRepository;
 
-	public List<Patient> getAllPatient() {
+	public List<Patient> getAllPatient() throws ServiceException{
 		return patientRepository.findAll();
 	}
 	
-	public List<Patient> getPatientById(Long id) {
+	public List<Patient> getPatientById(Long id) throws ServiceException{
 		Patient patient = new Patient();
 		List<Patient> listPatient = new ArrayList<>();
 		try {
+			
 			patient = patientRepository.findById(id).get();
 			listPatient.add(patient);
+			
+			return listPatient;
+			
 		} catch (NoSuchElementException e) {
-			throw new NoSuchElementException("Patient with id " + id + " not found");
+			
+			throw new ServiceException("Patient with id " + id + " not found");
+			
 		}
-		return listPatient;
 	}
 
-	public void savePatient(Patient patient) {
+	public void savePatient(Patient patient) throws ServiceException{
 		LocalDate today = LocalDate.now();
 		String dateString = today.format(DateTimeFormatter.ofPattern("ddMMyyyy"));
 		Random rand = new Random();
@@ -48,23 +54,22 @@ public class PatientService {
 		patientRepository.save(patient);
 	}
 
-	public void updatePatient(Long patientId, Patient patient) {
+	public void updatePatient(Long patientId, Patient patient) throws ServiceException{
 		Patient existingPatients = new Patient();
 		try {
 			existingPatients = patientRepository.findById(patientId).get();
-			if (existingPatients != null) {
-				patient.setIdPasien(existingPatients.getIdPasien());
-				patient.setNomorPasien(existingPatients.getNomorPasien());
-				patientRepository.save(patient);
+			
+			patient.setIdPasien(existingPatients.getIdPasien());
+			patient.setNomorPasien(existingPatients.getNomorPasien());
+			patientRepository.save(patient);
 
-			}
 		} catch (NoSuchElementException e) {
-			throw new NoSuchElementException("Patient with id " + patientId + " not found");
+			throw new ServiceException("Patient with id " + patientId + " not found");
 		}
 
 	}
 
-	public void deletePatientById(Long id) {
+	public void deletePatientById(Long id) throws ServiceException{
 		patientRepository.deleteById(id);
 	}
 
