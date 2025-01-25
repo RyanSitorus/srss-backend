@@ -20,10 +20,7 @@ import com.srss.backend.base.model.Status;
 import com.srss.backend.entity.Users;
 import com.srss.backend.service.UserService;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
-
 @RestController
-@Tag(name = "User", description = "APIs for patient data")
 public class UserController {
 
 	@Autowired

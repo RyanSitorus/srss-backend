@@ -1,7 +1,5 @@
 package com.srss.backend.controller;
 
-import java.util.NoSuchElementException;
-
 import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,11 +22,8 @@ import com.srss.backend.base.model.Status;
 import com.srss.backend.entity.Patient;
 import com.srss.backend.service.PatientService;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
-
 @RestController
 @RequestMapping("/patient")
-@Tag(name = "Patient", description = "APIs for patient data")
 public class PatientController {
 
 	private final static Logger log = LoggerFactory.getLogger(PatientController.class);

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +20,7 @@ import com.srss.backend.base.model.Status;
 import com.srss.backend.entity.Doctor;
 import com.srss.backend.service.DoctorService;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
-
 @RestController
-@Tag(name = "Doctor", description = "APIs for doctor data")
 public class DoctorController {
 
 	@Autowired
