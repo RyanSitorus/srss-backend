@@ -7,24 +7,43 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
+import org.hibernate.service.spi.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.srss.backend.entity.Doctor;
-import com.srss.backend.entity.Patient;
 import com.srss.backend.repository.DoctorRepository;
 
 @Service
 public class DoctorService {
 
+	private final static Logger log = LoggerFactory.getLogger(DoctorService.class);
+	
 	@Autowired
 	private DoctorRepository doctorRepository;
 
-	public List<Doctor> getAllDoctor() {
+	public List<Doctor> getAllDoctor() throws ServiceException{
 		return doctorRepository.findAll();
 	}
 
-	public void saveDoctor(Doctor doctor) {
+	public List<Doctor> getDoctorById(Long id) throws ServiceException{
+		Doctor doctor = new Doctor();
+		List<Doctor> listDoctor = new ArrayList<>();
+		try {
+			doctor = doctorRepository.findById(id).get();
+			listDoctor.add(doctor);
+		} catch (NoSuchElementException e) {
+			
+			throw new ServiceException("Doctor with id " + id + " not found");
+			
+		}
+		return listDoctor;
+	}
+
+	
+	public void saveDoctor(Doctor doctor) throws ServiceException{
 		LocalDate today = LocalDate.now();
 		String dateString = today.format(DateTimeFormatter.ofPattern("ddMMyyyy"));
 		Random rand = new Random();
@@ -33,34 +52,21 @@ public class DoctorService {
 		doctorRepository.save(doctor);
 	}
 
-	public List<Doctor> getDoctorById(Long id) {
-		Doctor doctor = new Doctor();
-		List<Doctor> listDoctor = new ArrayList<>();
-		try {
-			doctor = doctorRepository.findById(id).get();
-			listDoctor.add(doctor);
-		} catch (NoSuchElementException e) {
-			throw new NoSuchElementException("Doctor with id " + id + " not found");
-		}
-		return listDoctor;
-	}
-
-	public void updateDoctor(Long doctorId, Doctor doctor) {
+	public void updateDoctor(Long doctorId, Doctor doctor) throws ServiceException {
 		Doctor existingDoctors = new Doctor();
 		try {
 			existingDoctors = doctorRepository.findById(doctorId).get();
-			if (existingDoctors != null) {
-				doctor.setIdDokter(existingDoctors.getIdDokter());
-				doctor.setNomorDokter(existingDoctors.getNomorDokter());
-				doctorRepository.save(doctor);
 
-			}
+			doctor.setIdDokter(existingDoctors.getIdDokter());
+			doctor.setNomorDokter(existingDoctors.getNomorDokter());
+			doctorRepository.save(doctor);
+
 		} catch (NoSuchElementException e) {
-			throw new NoSuchElementException("Doctor with id " + doctorId + " not found");
+			throw new ServiceException("Doctor with id " + doctorId + " not found");
 		}
 	}
 
-	public void deleteDoctorById(Long id) {
+	public void deleteDoctorById(Long id) throws ServiceException{
 		doctorRepository.deleteById(id);
 	}
 

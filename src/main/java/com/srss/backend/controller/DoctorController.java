@@ -1,39 +1,44 @@
 package com.srss.backend.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
-
 import org.hibernate.service.spi.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.srss.backend.base.model.DoctorResponse;
 import com.srss.backend.base.model.Status;
 import com.srss.backend.entity.Doctor;
 import com.srss.backend.service.DoctorService;
 
 @RestController
+@RequestMapping("/doctor")
 public class DoctorController {
 
+	private final static Logger log = LoggerFactory.getLogger(PatientController.class);
+	
 	@Autowired
 	private DoctorService doctorService;
 
-	@GetMapping("/allDoctor")
+	@GetMapping("/getAll")
 	public HttpEntity getAllDoctor() {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
+		DoctorResponse allDoctor = new DoctorResponse();
 
 		try {
-			response.put("doctor", doctorService.getAllDoctor());
+			allDoctor.setDoctor(doctorService.getAllDoctor());
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
@@ -54,19 +59,19 @@ public class DoctorController {
 
 		}
 
-		response.put("status", status);
+		allDoctor.setStatus(status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(allDoctor, httpStatus);
 	}
 
-	@GetMapping("/doctorById")
+	@GetMapping("/getById")
 	public HttpEntity getDoctorById(@RequestParam Long doctorId) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
+		DoctorResponse doctor = new DoctorResponse();
 
 		try {
-			response.put("doctor", doctorService.getDoctorById(doctorId));
+			doctor.setDoctor(doctorService.getDoctorById(doctorId));
 
 			httpStatus = HttpStatus.OK;
 			status.setResponseMessage("Success");
@@ -78,13 +83,7 @@ public class DoctorController {
 			status.setResponseMessage(se.getMessage());
 			httpStatus = HttpStatus.BAD_REQUEST;
 
-		} catch (NoSuchElementException nse) {
-
-			status.setResponseCode(HttpStatus.BAD_REQUEST.value());
-			status.setResponseMessage(nse.getMessage());
-			httpStatus = HttpStatus.BAD_REQUEST;
-
-		}catch (Exception e) {
+		} catch (Exception e) {
 
 			status.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			status.setResponseMessage("We are having server's problem. Sorry for this inconvenience");
@@ -93,16 +92,15 @@ public class DoctorController {
 
 		}
 
-		response.put("status", status);
+		doctor.setStatus(status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(doctor, httpStatus);
 	}
 
-	@RequestMapping(value = "/addDoctor", method = RequestMethod.POST)
+	@PostMapping(value = "/add")
 	public HttpEntity addDoctor(@RequestBody Doctor doctor) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
 
 		try {
 			doctorService.saveDoctor(doctor);
@@ -126,17 +124,14 @@ public class DoctorController {
 
 		}
 
-		response.put("status", status);
-
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(status, httpStatus);
 
 	}
 
-	@RequestMapping(value = "/updateDoctor", method = RequestMethod.PUT)
-	public HttpEntity updateDoctor(@RequestParam Long doctorId, @RequestBody Doctor doctor ) {
+	@PutMapping(value = "/update/{doctorId}")
+	public HttpEntity updateDoctor(@PathVariable Long doctorId, @RequestBody Doctor doctor ) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
 
 		try {
 
@@ -160,16 +155,14 @@ public class DoctorController {
 			e.printStackTrace();
 
 		}
-		response.put("status", status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(status, httpStatus);
 	}
 	
-	@RequestMapping(value = "/deleteDoctorById", method = RequestMethod.DELETE)
-	public HttpEntity deleteDoctorById(@RequestParam Long doctorId) {
+	@DeleteMapping(value = "/deleteById/{doctorId}")
+	public HttpEntity deleteDoctorById(@PathVariable Long doctorId) {
 		Status status = new Status();
 		HttpStatus httpStatus = null;
-		Map<String, Object> response = new HashMap<>();
 
 		try {
 
@@ -193,9 +186,8 @@ public class DoctorController {
 			e.printStackTrace();
 
 		}
-		response.put("status", status);
 
-		return new ResponseEntity<>(response, httpStatus);
+		return new ResponseEntity<>(status, httpStatus);
 	}
 
 }
