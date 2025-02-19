@@ -50,7 +50,7 @@ public class PatientService {
 		String dateString = today.format(DateTimeFormatter.ofPattern("ddMMyyyy"));
 		Random rand = new Random();
 
-		patient.setNomorPasien(dateString + String.valueOf(rand.nextInt(1000)));
+		patient.setPatientNumber(dateString + String.valueOf(rand.nextInt(1000)));
 		patientRepository.save(patient);
 	}
 
@@ -59,8 +59,8 @@ public class PatientService {
 		try {
 			existingPatients = patientRepository.findById(patientId).get();
 			
-			patient.setIdPasien(existingPatients.getIdPasien());
-			patient.setNomorPasien(existingPatients.getNomorPasien());
+			patient.setPatientId(existingPatients.getPatientId());
+			patient.setPatientNumber(existingPatients.getPatientNumber());
 			patientRepository.save(patient);
 
 		} catch (NoSuchElementException e) {

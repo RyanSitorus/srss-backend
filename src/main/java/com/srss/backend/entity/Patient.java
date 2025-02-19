@@ -10,102 +10,98 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 @Entity
-@Table(name = "pasien")
+@Table(name = "patient")
 public class Patient {
 
 	@Id
-	@Column(name = "id_pasien", nullable = false)
+	@Column(name = "patient_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idPasien;
+	private Long patientId;
 
-	@Column(name = "nomor_pasien", nullable = false, unique=true)
-	private String nomorPasien;
+	@Column(name = "patient_number", nullable = false, unique = true)
+	private String patientNumber;
 
-	@Column(name = "nama_pasien", nullable = false)
-	private String namaPasien;
+	@Column(name = "patient_name", nullable = false)
+	private String patientName;
 
-	@Column(name = "nomor_hp", nullable = false)
-	private String nomorHp;
+	@Column(name = "phone_number", nullable = false)
+	private String phoneNumber;
 
-	@Column(name = "tanggal_lahir", nullable = false)
-	private LocalDate tanggalLahir;
+	@Column(name = "date_of_birth", nullable = false)
+	private LocalDate dateOfBirth;
 
-	@Column(name = "jenis_kelamin", nullable = false)
-	private String jenisKelamin;
+	@Column(name = "gender", nullable = false)
+	private String gender;
 
-	@Column(name = "kategori", nullable = false)
-	private String kategori;
+	@Column(name = "category", nullable = false)
+	private String category;
 
-	@Column(name = "alamat", nullable = false)
-	private String alamat;
+	@Column(name = "address", nullable = false)
+	private String address;
 
-	public Patient() {
+	public Long getPatientId() {
+		return patientId;
 	}
 
-	public Long getIdPasien() {
-		return idPasien;
+	public void setPatientId(Long patientId) {
+		this.patientId = patientId;
 	}
 
-	public void setIdPasien(Long idPasien) {
-		this.idPasien = idPasien;
+	public String getPatientNumber() {
+		return patientNumber;
 	}
 
-	public String getNomorPasien() {
-		return nomorPasien;
+	public void setPatientNumber(String patientNumber) {
+		this.patientNumber = patientNumber;
 	}
 
-	public void setNomorPasien(String nomorPasien) {
-		this.nomorPasien = nomorPasien;
+	public String getPatientName() {
+		return patientName;
 	}
 
-	public String getNamaPasien() {
-		return namaPasien;
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
 
-	public void setNamaPasien(String namaPasien) {
-		this.namaPasien = namaPasien;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public String getNomorHp() {
-		return nomorHp;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public void setNomorHp(String nomorHp) {
-		this.nomorHp = nomorHp;
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public LocalDate getTanggalLahir() {
-		return tanggalLahir;
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
-	public void setTanggalLahir(LocalDate tanggalLahir) {
-		this.tanggalLahir = tanggalLahir;
+	public String getGender() {
+		return gender;
 	}
 
-	public String getJenisKelamin() {
-		return jenisKelamin;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public void setJenisKelamin(String jenisKelamin) {
-		this.jenisKelamin = jenisKelamin;
+	public String getCategory() {
+		return category;
 	}
 
-	public String getKategori() {
-		return kategori;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
-	public void setKategori(String kategori) {
-		this.kategori = kategori;
+	public String getAddress() {
+		return address;
 	}
 
-	public String getAlamat() {
-		return alamat;
-	}
-
-	public void setAlamat(String alamat) {
-		this.alamat = alamat;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }

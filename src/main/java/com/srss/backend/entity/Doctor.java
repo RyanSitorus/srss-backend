@@ -12,101 +12,97 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name = "dokter")
-@AllArgsConstructor
+@Table(name = "doctor")
 public class Doctor {
 
 	@Id
-	@Column(name = "id_dokter", nullable = false)
+	@Column(name = "doctor_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idDokter;
+	private Long doctorId;
 
-	@Column(name = "nomor_dokter", nullable = false)
-	private String nomorDokter;
+	@Column(name = "doctor_number", nullable = false)
+	private String doctorNumber;
 
-	@Column(name = "nama_dokter", nullable = false)
-	private String namaDokter;
+	@Column(name = "doctor_name", nullable = false)
+	private String doctorName;
 
-	@Column(name = "nomor_hp")
-	private String nomorHp;
+	@Column(name = "phone_number")
+	private String phoneNumber;
 
-	@Column(name = "tanggal_lahir")
-	private LocalDate tanggalLahir;
+	@Column(name = "date_of_birth")
+	private LocalDate dateOfBirth;
 
-	@Column(name = "jenis_kelamin")
-	private String jenisKelamin;
+	@Column(name = "gender")
+	private String gender;
 
-	@Column(name = "spesialis")
-	private String spesialis;
+	@Column(name = "specialty")
+	private String specialty;
 
-	@Column(name = "alamat")
-	private String alamat;
+	@Column(name = "address")
+	private String address;
 
-	public Doctor() {
+	public Long getDoctorId() {
+		return doctorId;
 	}
 
-	public Long getIdDokter() {
-		return idDokter;
+	public void setDoctorId(Long doctorId) {
+		this.doctorId = doctorId;
 	}
 
-	public void setIdDokter(Long idDokter) {
-		this.idDokter = idDokter;
+	public String getDoctorNumber() {
+		return doctorNumber;
 	}
 
-	public String getNomorDokter() {
-		return nomorDokter;
+	public void setDoctorNumber(String doctorNumber) {
+		this.doctorNumber = doctorNumber;
 	}
 
-	public void setNomorDokter(String nomorDokter) {
-		this.nomorDokter = nomorDokter;
+	public String getDoctorName() {
+		return doctorName;
 	}
 
-	public String getNamaDokter() {
-		return namaDokter;
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
 	}
 
-	public void setNamaDokter(String namaDokter) {
-		this.namaDokter = namaDokter;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public String getNomorHp() {
-		return nomorHp;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public void setNomorHp(String nomorHp) {
-		this.nomorHp = nomorHp;
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public LocalDate getTanggalLahir() {
-		return tanggalLahir;
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
-	public void setTanggalLahir(LocalDate tanggalLahir) {
-		this.tanggalLahir = tanggalLahir;
+	public String getGender() {
+		return gender;
 	}
 
-	public String getJenisKelamin() {
-		return jenisKelamin;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public void setJenisKelamin(String jenisKelamin) {
-		this.jenisKelamin = jenisKelamin;
+	public String getSpecialty() {
+		return specialty;
 	}
 
-	public String getSpesialis() {
-		return spesialis;
+	public void setSpecialty(String specialty) {
+		this.specialty = specialty;
 	}
 
-	public void setSpesialis(String spesialis) {
-		this.spesialis = spesialis;
+	public String getAddress() {
+		return address;
 	}
 
-	public String getAlamat() {
-		return alamat;
-	}
-
-	public void setAlamat(String alamat) {
-		this.alamat = alamat;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }
