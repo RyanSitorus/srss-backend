@@ -13,6 +13,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.srss.backend.entity.Doctor;
+import com.srss.backend.entity.Patient;
+import com.srss.backend.entity.Room;
+import com.srss.backend.repository.DoctorRepository;
+import com.srss.backend.repository.PatientRepository;
+import com.srss.backend.repository.RoomRepository;
 import com.srss.backend.transaction.entity.Outpatient;
 import com.srss.backend.transaction.repository.OutpatientRepository;
 
@@ -23,6 +29,16 @@ public class OutpatientService {
 	
 	@Autowired
 	private OutpatientRepository outpatientRepository;
+	
+	@Autowired
+	private PatientRepository patientRepository;
+	
+	@Autowired
+	private DoctorRepository doctorRepository;
+	
+	@Autowired
+	private RoomRepository roomRepository;
+	
 
 	public List<Outpatient> getAllOutpatient() throws ServiceException{
 		return outpatientRepository.findAll();
@@ -49,6 +65,17 @@ public class OutpatientService {
 		Random rand = new Random();
 
 		outpatient.setOutpatientNumber(dateString + String.valueOf(rand.nextInt(1000)));
+		
+		Patient existingPatient = patientRepository.findById(outpatient.getPatient().getPatientId())
+	            .orElseThrow(() -> new RuntimeException("Patient not found"));
+	    Doctor existingDoctor = doctorRepository.findById(outpatient.getDoctor().getDoctorId())
+	            .orElseThrow(() -> new RuntimeException("Doctor not found"));
+	    
+	    
+	    outpatient.setPatient(existingPatient);
+	    outpatient.setDoctor(existingDoctor);
+	    
+	    
 		outpatientRepository.save(outpatient);
 	}
 
@@ -59,6 +86,16 @@ public class OutpatientService {
 
 			outpatient.setOutpatientId(existingOutpatients.getOutpatientId());
 			outpatient.setOutpatientNumber(existingOutpatients.getOutpatientNumber());
+			
+			Patient existingPatient = patientRepository.findById(outpatient.getPatient().getPatientId())
+		            .orElseThrow(() -> new RuntimeException("Patient not found"));
+		    Doctor existingDoctor = doctorRepository.findById(outpatient.getDoctor().getDoctorId())
+		            .orElseThrow(() -> new RuntimeException("Doctor not found"));
+		    
+		    
+		    outpatient.setPatient(existingPatient);
+		    outpatient.setDoctor(existingDoctor);
+		    
 			outpatientRepository.save(outpatient);
 
 		} catch (NoSuchElementException e) {

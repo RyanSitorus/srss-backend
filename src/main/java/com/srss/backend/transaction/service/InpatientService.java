@@ -13,6 +13,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.srss.backend.entity.Doctor;
+import com.srss.backend.entity.Patient;
+import com.srss.backend.entity.Room;
+import com.srss.backend.repository.DoctorRepository;
+import com.srss.backend.repository.PatientRepository;
+import com.srss.backend.repository.RoomRepository;
 import com.srss.backend.transaction.entity.Inpatient;
 import com.srss.backend.transaction.repository.InpatientRepository;
 
@@ -23,6 +29,15 @@ public class InpatientService {
 	
 	@Autowired
 	private InpatientRepository inpatientRepository;
+	
+	@Autowired
+	private PatientRepository patientRepository;
+	
+	@Autowired
+	private DoctorRepository doctorRepository;
+	
+	@Autowired
+	private RoomRepository roomRepository;
 
 	public List<Inpatient> getAllInpatient() throws ServiceException{
 		return inpatientRepository.findAll();
@@ -47,8 +62,21 @@ public class InpatientService {
 		LocalDate today = LocalDate.now();
 		String dateString = today.format(DateTimeFormatter.ofPattern("ddMMyyyy"));
 		Random rand = new Random();
-
+		
 		inpatient.setInpatientNumber(dateString + String.valueOf(rand.nextInt(1000)));
+		
+		Patient existingPatient = patientRepository.findById(inpatient.getPatient().getPatientId())
+	            .orElseThrow(() -> new RuntimeException("Patient not found"));
+	    Room existingRoom = roomRepository.findById(inpatient.getRoom().getIdRoom())
+	            .orElseThrow(() -> new RuntimeException("Room not found"));
+	    Doctor existingDoctor = doctorRepository.findById(inpatient.getDoctor().getDoctorId())
+	            .orElseThrow(() -> new RuntimeException("Doctor not found"));
+	    
+	    
+	    inpatient.setPatient(existingPatient);
+	    inpatient.setRoom(existingRoom);
+	    inpatient.setDoctor(existingDoctor);
+	    
 		inpatientRepository.save(inpatient);
 	}
 
@@ -59,6 +87,18 @@ public class InpatientService {
 
 			inpatient.setInpatientId(existingInpatients.getInpatientId());
 			inpatient.setInpatientNumber(existingInpatients.getInpatientNumber());
+			
+			Patient existingPatient = patientRepository.findById(inpatient.getPatient().getPatientId())
+		            .orElseThrow(() -> new RuntimeException("Patient not found"));
+		    Room existingRoom = roomRepository.findById(inpatient.getRoom().getIdRoom())
+		            .orElseThrow(() -> new RuntimeException("Room not found"));
+		    Doctor existingDoctor = doctorRepository.findById(inpatient.getDoctor().getDoctorId())
+		            .orElseThrow(() -> new RuntimeException("Doctor not found"));
+		    
+		    inpatient.setPatient(existingPatient);
+		    inpatient.setRoom(existingRoom);
+		    inpatient.setDoctor(existingDoctor);
+		    
 			inpatientRepository.save(inpatient);
 
 		} catch (NoSuchElementException e) {

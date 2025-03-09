@@ -2,11 +2,17 @@ package com.srss.backend.transaction.entity;
 
 import java.time.LocalDate;
 
+import com.srss.backend.entity.Doctor;
+import com.srss.backend.entity.Patient;
+import com.srss.backend.entity.Room;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,14 +30,17 @@ public class Inpatient {
 	@Column(name = "admission_date", nullable = false)
 	private LocalDate admissionDate;
 
-	@Column(name = "patient_name", nullable = false)
-	private String patientName;
+	@ManyToOne
+	@JoinColumn(name = "inpatient_patient_id", nullable = false)
+	private Patient patient;
 
-	@Column(name = "room_name", nullable = false)
-	private String roomName;
+	@ManyToOne
+	@JoinColumn(name = "inpatient_doctor_id", nullable = false)
+	private Doctor doctor;
 
-	@Column(name = "doctor_name", nullable = false)
-	private String doctorName;
+	@ManyToOne
+	@JoinColumn(name = "inpatient_id_room", nullable = false)
+	private Room room;
 
 	@Column(name = "diagnosis")
 	private String diagnosis;
@@ -63,28 +72,28 @@ public class Inpatient {
 		this.admissionDate = admissionDate;
 	}
 
-	public String getPatientName() {
-		return patientName;
+	public Patient getPatient() {
+		return patient;
 	}
 
-	public void setPatientName(String patientName) {
-		this.patientName = patientName;
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
-	public String getRoomName() {
-		return roomName;
+	public Doctor getDoctor() {
+		return doctor;
 	}
 
-	public void setRoomName(String roomName) {
-		this.roomName = roomName;
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 
-	public String getDoctorName() {
-		return doctorName;
+	public Room getRoom() {
+		return room;
 	}
 
-	public void setDoctorName(String doctorName) {
-		this.doctorName = doctorName;
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 
 	public String getDiagnosis() {

@@ -2,11 +2,16 @@ package com.srss.backend.transaction.entity;
 
 import java.time.LocalDate;
 
+import com.srss.backend.entity.Doctor;
+import com.srss.backend.entity.Patient;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,11 +29,13 @@ public class Outpatient {
 	@Column(name = "appointment_date", nullable = false)
 	private LocalDate appointmentDate;
 
-	@Column(name = "patient_name", nullable = false)
-	private String patientName;
+	@ManyToOne
+	@JoinColumn(name = "outpatient_patient_id", nullable = false)
+	private Patient patient;
 
-	@Column(name = "doctor_name", nullable = false)
-	private String doctorName;
+	@ManyToOne
+	@JoinColumn(name = "outpatient_doctor_id", nullable = false)
+	private Doctor doctor;
 
 	@Column(name = "diagnosis")
 	private String diagnosis;
@@ -60,20 +67,20 @@ public class Outpatient {
 		this.appointmentDate = appointmentDate;
 	}
 
-	public String getPatientName() {
-		return patientName;
+	public Patient getPatient() {
+		return patient;
 	}
 
-	public void setPatientName(String patientName) {
-		this.patientName = patientName;
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
-	public String getDoctorName() {
-		return doctorName;
+	public Doctor getDoctor() {
+		return doctor;
 	}
 
-	public void setDoctorName(String doctorName) {
-		this.doctorName = doctorName;
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 
 	public String getDiagnosis() {
