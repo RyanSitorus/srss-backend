@@ -95,11 +95,12 @@ public class Inpatient {
 		this.diagnosis = diagnosis;
 	}
 
-	public String getNotes() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setNotes(String notes) {
-		this.description = notes;
+	public void setDescription(String description) {
+		this.description = description;
 	}
+
 }
