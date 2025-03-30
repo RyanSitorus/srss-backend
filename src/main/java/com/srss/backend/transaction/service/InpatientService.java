@@ -88,16 +88,16 @@ public class InpatientService {
 			inpatient.setInpatientId(existingInpatients.getInpatientId());
 			inpatient.setInpatientNumber(existingInpatients.getInpatientNumber());
 			
-//			Patient existingPatient = patientRepository.findById(inpatient.getPatient().getPatientId())
-//		            .orElseThrow(() -> new RuntimeException("Patient not found"));
-//		    Room existingRoom = roomRepository.findById(inpatient.getRoom().getIdRoom())
-//		            .orElseThrow(() -> new RuntimeException("Room not found"));
-//		    Doctor existingDoctor = doctorRepository.findById(inpatient.getDoctor().getDoctorId())
-//		            .orElseThrow(() -> new RuntimeException("Doctor not found"));
-//		    
-//		    inpatient.setPatient(existingPatient);
-//		    inpatient.setRoom(existingRoom);
-//		    inpatient.setDoctor(existingDoctor);
+			Patient existingPatient = patientRepository.findById(inpatient.getPatient().getPatientId())
+		            .orElseThrow(() -> new RuntimeException("Patient not found"));
+		    Room existingRoom = roomRepository.findById(inpatient.getRoom().getIdRoom())
+		            .orElseThrow(() -> new RuntimeException("Room not found"));
+		    Doctor existingDoctor = doctorRepository.findById(inpatient.getDoctor().getDoctorId())
+		            .orElseThrow(() -> new RuntimeException("Doctor not found"));
+		    
+		    inpatient.setPatient(existingPatient);
+		    inpatient.setRoom(existingRoom);
+		    inpatient.setDoctor(existingDoctor);
 		    
 			inpatientRepository.save(inpatient);
 
