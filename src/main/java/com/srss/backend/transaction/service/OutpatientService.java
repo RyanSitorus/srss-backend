@@ -87,10 +87,21 @@ public class OutpatientService {
 			outpatient.setOutpatientId(existingOutpatients.getOutpatientId());
 			outpatient.setOutpatientNumber(existingOutpatients.getOutpatientNumber());
 			
+			Patient existingPatient = patientRepository.findById(outpatient.getPatient().getPatientId())
+		            .orElseThrow(() -> new RuntimeException("Patient not found"));
+		    Doctor existingDoctor = doctorRepository.findById(outpatient.getDoctor().getDoctorId())
+		            .orElseThrow(() -> new RuntimeException("Doctor not found"));
+		    
+		    
+		    outpatient.setPatient(existingPatient);
+		    outpatient.setDoctor(existingDoctor);
+		    
 			outpatientRepository.save(outpatient);
 
 		} catch (NoSuchElementException e) {
 			throw new ServiceException("Outpatient with id " + outpatientId + " not found");
+		}catch (Exception e) {
+			throw new ServiceException(e.getMessage());
 		}
 	}
 
